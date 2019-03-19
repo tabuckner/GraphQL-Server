@@ -70,7 +70,18 @@ const mutation = new GraphQLObjectType({
         })
         .then(res => res.data);
       }
-    }
+    },
+    deleteCustomer: {
+      type: CustomerType,
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLInt) }, // Required Field.
+      },
+      resolve(parentValue, args) {
+        const requestUri = `${JSON_SERVER_HOST}/customers/${args.id}`; 
+        return axios.delete(requestUri)
+        .then(res => res.data);
+      }
+    },
   }
 });
 
