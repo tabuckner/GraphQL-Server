@@ -1,0 +1,19 @@
+{
+  "name": "GraphQl-Server",
+  "version": "0.0.1",
+  "description": "Simple GraphQL Server",
+  "main": "server.js",
+  "repository": "git@github.com:tabuckner/GraphQL-Server.git",
+  "author": "Taylor Buckner <tbuckner@theappraisallane.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-graphql": "^0.7.1",
+    "graphql": "^14.1.1",
+    "nodemon": "^1.18.10"
+  },
+  "scripts": {
+    "start": "nodemon server.js"
+  }
+}
