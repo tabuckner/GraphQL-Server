@@ -82,6 +82,20 @@ const mutation = new GraphQLObjectType({
         .then(res => res.data);
       }
     },
+    updateCustomer: {
+      type: CustomerType,
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLInt) }, // Required Field.
+        name: { type: GraphQLString },
+        email: { type: GraphQLString }, 
+        age: { type: GraphQLInt }, 
+      },
+      resolve(parentValue, args) {
+        const requestUri = `${JSON_SERVER_HOST}/customers/${args.id}`; 
+        return axios.patch(requestUri, args) // Cus es6
+        .then(res => res.data);
+      }
+    },
   }
 });
 
